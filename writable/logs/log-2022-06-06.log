@@ -1,0 +1,21 @@
+CRITICAL - 2022-06-06 12:23:16 --> Undefined variable: contact
+#0 C:\xampp7\htdocs\sik\app\Views\contacts\index.php(103): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp7\\htdoc...', 103, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp7\\htdoc...')
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('contacts/index', Array, true)
+#4 C:\xampp7\htdocs\sik\app\Controllers\ContactController.php(19): view('contacts/index', Array)
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\ContactController->index()
+#6 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ContactController))
+#7 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp7\htdocs\sik\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 12:26:52 --> Invalid file: layouts/admin.php
+#0 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/admin.p...')
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/admin', Array, true)
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('contacts/index', Array, true)
+#3 C:\xampp7\htdocs\sik\app\Controllers\ContactController.php(19): view('contacts/index', Array)
+#4 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\ContactController->index()
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ContactController))
+#6 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp7\htdocs\sik\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}

@@ -19,6 +19,8 @@ class Registrar
     {
         return [
             'plugins' => [
+                //'logged_in'  => [static:: fn($str, $params = []) => service('authentication')->check() ? $str : ''],
+                //'logged_out' => [static:: fn($str, $params = []) => ! service('authentication')->check() ? $str : ''],
                 'logged_in'  => [static fn ($str, array $params = []) => service('authentication')->check() ? $str : ''],
                 'logged_out' => [static fn ($str, array $params = []) => ! service('authentication')->check() ? $str : ''],
             ],

@@ -1,0 +1,54 @@
+CRITICAL - 2022-06-08 07:36:02 --> Undefined property: App\Controllers\Home::$deputi
+#0 C:\xampp7\htdocs\sik\app\Controllers\Home.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp7\\htdoc...', 27, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->dashboard()
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 07:36:24 --> Trying to get property 'id_deputi' of non-object
+#0 C:\xampp7\htdocs\sik\app\Views\karyawan\index.php(165): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\xampp7\\htdoc...', 165, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp7\\htdoc...')
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('karyawan/index', Array, true)
+#4 C:\xampp7\htdocs\sik\app\Controllers\Home.php(29): view('karyawan/index', Array)
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->dashboard()
+#6 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-08 07:37:41 --> Trying to get property 'id_deputi' of non-object
+#0 C:\xampp7\htdocs\sik\app\Views\karyawan\index.php(165): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\xampp7\\htdoc...', 165, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp7\\htdoc...')
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('karyawan/index', Array, true)
+#4 C:\xampp7\htdocs\sik\app\Controllers\Home.php(30): view('karyawan/index', Array)
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->dashboard()
+#6 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-08 07:52:09 --> Undefined index: id
+#0 C:\xampp7\htdocs\sik\app\Views\karyawan\index.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp7\\htdoc...', 62, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp7\\htdoc...')
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('karyawan/index', Array, true)
+#4 C:\xampp7\htdocs\sik\app\Controllers\Home.php(30): view('karyawan/index', Array)
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->dashboard()
+#6 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-08 13:24:41 --> Undefined variable: karyawan
+#0 C:\xampp7\htdocs\sik\app\Controllers\Home.php(88): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp7\\htdoc...', 88, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->ajaxList()
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-08 13:42:47 --> Undefined property: App\Controllers\Home::$output
+#0 C:\xampp7\htdocs\sik\app\Controllers\Home.php(109): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp7\\htdoc...', 109, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->getKaryawan()
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

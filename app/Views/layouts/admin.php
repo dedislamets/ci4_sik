@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Codeigniter 4 - Dashboard</title>
+        <title>Informasi Karyawan</title>
         <!-- Custom fonts for this template-->
         <link href="<?= base_url() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link
@@ -39,7 +39,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Codelapan <?= Date('Y') ?> </span>
+                            <span>Copyright &copy; Sahrul <?= Date('Y') ?> </span>
                         </div>
                     </div>
                 </footer>

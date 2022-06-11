@@ -31,17 +31,31 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::dashboard');
 $routes->get('contact', 'ContactController::index');
-$routes->add('contact', 'ContactController::create');
-$routes->add('contact/edit/(:segment)', 'ContactController::edit/$1');
-$routes->get('contact/delete/(:segment)', 'ContactController::delete/$1');
+
+$routes->add('dashboard/ajaxList', 'Home::ajaxList');
+$routes->add('dashboard/get', 'Home::getKaryawan');
+
+$routes->get('deputi', 'DeputiController::index');
+$routes->get('dashboard', 'Home::dashboard');
+
+$routes->add('deputi/get', 'DeputiController::getDeputi');
+
 $routes->group('', ['filter' => 'login'], function($routes){
-    $routes->get('dashboard', 'Home::dashboard');
-    $routes->get('contact', 'ContactController::index');
-    $routes->add('contact', 'ContactController::create');
-    $routes->add('contact/edit/(:segment)', 'ContactController::edit/$1');
-    $routes->get('contact/delete/(:segment)', 'ContactController::delete/$1');
+
+    // $routes->get('contact', 'ContactController::index');
+    // $routes->add('contact', 'ContactController::create');
+    // $routes->add('contact/edit/(:segment)', 'ContactController::edit/$1');
+    // $routes->get('contact/delete/(:segment)', 'ContactController::delete/$1');
+
+    $routes->add('dashboard/create', 'Home::create');
+    $routes->add('dashboard/edit/(:segment)', 'Home::edit/$1');
+    $routes->get('dashboard/delete/(:segment)', 'Home::delete/$1');
+
+    $routes->add('deputi/create', 'DeputiController::create');
+    $routes->add('deputi/edit/(:segment)', 'DeputiController::edit/$1');
+    $routes->get('deputi/delete/(:segment)', 'DeputiController::delete/$1');
 });
 /*
  * --------------------------------------------------------------------

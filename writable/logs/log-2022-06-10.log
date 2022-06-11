@@ -1,0 +1,67 @@
+CRITICAL - 2022-06-10 01:28:48 --> Call to a member function getGet() on string
+#0 C:\xampp7\htdocs\sik\app\Controllers\Home.php(70): App\Models\UserDatatable->__construct(Object(CodeIgniter\HTTP\IncomingRequest))
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->ajaxList()
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-10 04:13:19 --> Undefined property: stdClass::$deputi_name
+#0 C:\xampp7\htdocs\sik\app\Controllers\Home.php(86): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp7\\htdoc...', 86, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->ajaxList()
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-10 04:16:04 --> Undefined property: stdClass::$deputi_name
+#0 C:\xampp7\htdocs\sik\app\Controllers\Home.php(86): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp7\\htdoc...', 86, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Home->ajaxList()
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-10 05:01:01 --> Undefined index: id
+#0 C:\xampp7\htdocs\sik\app\Views\deputi\index.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp7\\htdoc...', 45, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp7\\htdoc...')
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('deputi/index', Array, true)
+#4 C:\xampp7\htdocs\sik\app\Controllers\DeputiController.php(33): view('deputi/index', Array)
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\DeputiController->index()
+#6 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DeputiController))
+#7 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-10 05:01:29 --> Undefined index: id
+#0 C:\xampp7\htdocs\sik\app\Views\deputi\index.php(52): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp7\\htdoc...', 52, Array)
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp7\\htdoc...')
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('deputi/index', Array, true)
+#4 C:\xampp7\htdocs\sik\app\Controllers\DeputiController.php(33): view('deputi/index', Array)
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\DeputiController->index()
+#6 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DeputiController))
+#7 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-10 13:35:34 -->  route cannot be found while reverse-routing.
+#0 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\HTTP\RedirectResponse.php(56): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(832): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 C:\xampp7\htdocs\sik\app\ThirdParty\myth-auth\src\Filters\LoginFilter.php(46): redirect('login')
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Filters\Filters.php(173): Myth\Auth\Filters\LoginFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#4 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/dashboard', 'before')
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-10 13:35:45 -->  route cannot be found while reverse-routing.
+#0 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\HTTP\RedirectResponse.php(56): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Common.php(832): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 C:\xampp7\htdocs\sik\app\ThirdParty\myth-auth\src\Filters\LoginFilter.php(46): redirect('login')
+#3 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Filters\Filters.php(173): Myth\Auth\Filters\LoginFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#4 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/deputi', 'before')
+#5 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-10 14:18:47 --> login filter must have a matching alias defined.
+#0 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('login')
+#1 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->enableFilter('login', 'before')
+#2 C:\xampp7\htdocs\sik\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp7\htdocs\sik\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
