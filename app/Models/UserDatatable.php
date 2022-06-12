@@ -20,8 +20,7 @@ class UserDatatable extends Model
         parent::__construct();
         $this->db = db_connect();
         $this->request = $request;
-        $this->dt = $this->db->table($this->table);
-        $this->dt->join("deputi","deputi.id_deputi=karyawan.deputi");
+        $this->dt = $this->db->table($this->table)->join("deputi_tb","deputi_tb.id_deputi=karyawan.deputi");
 
         $arr_where = array();
 
@@ -47,6 +46,7 @@ class UserDatatable extends Model
     private function getDatatablesQuery()
     {
         $i = 0;
+        $this->dt = $this->db->table("karyawan")->join("deputi_tb","deputi_tb.id_deputi=karyawan.deputi");
         foreach ($this->column_search as $item) {
             if ($this->request->getPost('search')['value']) {
                 if ($i === 0) {
@@ -72,22 +72,28 @@ class UserDatatable extends Model
     public function getDatatables()
     {
         $this->getDatatablesQuery();
+        $this->dt->join("deputi_tb as c","c.id_deputi=karyawan.deputi",'left');
+        
         if ($this->request->getPost('length') != -1)
             $this->dt->limit($this->request->getPost('length'), $this->request->getPost('start'));
         $query = $this->dt->get();
+        echo $this->dt->getLastQuery();exit();
+
         return $query->getResult();
     }
 
     public function countFiltered()
     {
         $this->getDatatablesQuery();
-        $this->dt->join("deputi","deputi.id_deputi=karyawan.deputi");
+        $this->dt->join("deputi_tb","deputi_tb.id_deputi=karyawan.deputi");
         return $this->dt->countAllResults();
     }
 
     public function countAll()
     {
-        $tbl_storage = $this->db->table($this->table);
+        
+        $this->db->table($this->table);
+        $tbl_storage = $this->db->join("deputi d","deputi.id_deputi=karyawan.deputi");
         return $tbl_storage->countAllResults();
     }
 

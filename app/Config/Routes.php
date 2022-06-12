@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::dashboard');
 $routes->get('contact', 'ContactController::index');
 
-$routes->add('dashboard/ajaxList', 'Home::ajaxList');
+$routes->add('dashboard/ajaxList', 'Home::listdata');
 $routes->add('dashboard/get', 'Home::getKaryawan');
 
 $routes->get('deputi', 'DeputiController::index');
