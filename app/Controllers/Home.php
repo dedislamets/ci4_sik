@@ -29,7 +29,6 @@ class Home extends BaseController
     	$this->deputi = new Deputi();
 	    $data['karyawan'] = $this->karyawan->getAll();
 	    $data['deputi'] = $this->deputi->findAll();
-	    // print("<pre>".print_r($data,true)."</pre>");exit();
         return view('karyawan/index', $data);
     }
 
@@ -51,15 +50,16 @@ class Home extends BaseController
 
     public function edit($id)
     {
+        // print("<pre>".print_r($this->request->getPost(),true)."</pre>");exit();
         $this->karyawan = new Karyawan();
         $this->karyawan->update($id, [
-                'name' => $this->request->getPost('name'),
-	            'email' => $this->request->getPost('email'),
-	            'phone' => $this->request->getPost('phone'),
-	            'address' => $this->request->getPost('address'),
-	            'status' => $this->request->getPost('status'),
-	            'agama' => $this->request->getPost('agama'),
-	            'deputi' => $this->request->getPost('deputi'),
+                'name' => $this->request->getPost('name_edit'),
+	            'email' => $this->request->getPost('email_edit'),
+	            'phone' => $this->request->getPost('phone_edit'),
+	            'address' => $this->request->getPost('address_edit'),
+	            'status' => $this->request->getPost('status_edit'),
+	            'agama' => $this->request->getPost('agama_edit'),
+	            'deputi' => $this->request->getPost('deputi_edit'),
             ]);
 
         return redirect('dashboard')->with('success', 'Data Updated Successfully');
