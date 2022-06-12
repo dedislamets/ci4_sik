@@ -81,6 +81,7 @@ class UserDatatable extends Model
     public function countFiltered()
     {
         $this->getDatatablesQuery();
+        $this->dt->join("deputi","deputi.id_deputi=karyawan.deputi");
         return $this->dt->countAllResults();
     }
 
