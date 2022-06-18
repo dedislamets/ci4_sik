@@ -9,7 +9,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item <?= (uri_string() == '/dashboard' ? 'active' : '') ?>">
         <a class="nav-link" href="<?= base_url('dashboard') ?>">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Karyawan</span></a>
@@ -17,11 +17,25 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('deputi') ?>">
+    <li class="nav-item <?= (uri_string() == '/extention' ? 'active' : '') ?>">
+        <a class="nav-link" href="<?= base_url('extention') ?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Extention</span></a>
     </li>
+    <?php if(!empty(user())){ ?>
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Master</span>
+        </a>
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item <?= (uri_string() == '/deputi' ? 'active' : '') ?>" href="<?= base_url('deputi') ?>">Direktorat</a>
+                <a class="collapse-item <?= (uri_string() == '/unit' ? 'active' : '') ?>" href="<?= base_url('unit') ?>">Unit</a>
+            </div>
+        </div>
+    </li>
+    <?php } ?>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Sidebar Toggler (Sidebar) -->

@@ -2,12 +2,11 @@
 
 namespace App\Controllers;
 use App\Models\Karyawan;
-use App\Models\Deputi;
+use App\Models\Unit;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Myth\Auth\Entities\User;
 use Myth\Auth\Models\UserModel;
 use App\Models\UserDatatable;
-use App\Models\DatatableKaryawan;
 use Config\Services;
 
 class Home extends BaseController
@@ -26,9 +25,10 @@ class Home extends BaseController
     public function dashboard()
     {
     	$this->karyawan = new Karyawan();
-    	$this->deputi = new Deputi();
+    	$this->unit = new Unit();
 	    $data['karyawan'] = $this->karyawan->getAll();
-	    $data['deputi'] = $this->deputi->findAll();
+	    $data['unit'] = $this->unit->findAll();
+	    // print("<pre>".print_r($data,true)."</pre>");exit();
         return view('karyawan/index', $data);
     }
 
@@ -42,7 +42,7 @@ class Home extends BaseController
             'address' => $this->request->getPost('address'),
             'status' => $this->request->getPost('status'),
             'agama' => $this->request->getPost('agama'),
-            'deputi' => $this->request->getPost('deputi'),
+            'id_unit' => $this->request->getPost('id_unit'),
         ]);
 
 		return redirect('dashboard')->with('success', 'Data Added Successfully');	
@@ -50,7 +50,6 @@ class Home extends BaseController
 
     public function edit($id)
     {
-        // print("<pre>".print_r($this->request->getPost(),true)."</pre>");exit();
         $this->karyawan = new Karyawan();
         $this->karyawan->update($id, [
                 'name' => $this->request->getPost('name_edit'),
@@ -59,62 +58,22 @@ class Home extends BaseController
 	            'address' => $this->request->getPost('address_edit'),
 	            'status' => $this->request->getPost('status_edit'),
 	            'agama' => $this->request->getPost('agama_edit'),
-	            'deputi' => $this->request->getPost('deputi_edit'),
+	            'id_unit' => $this->request->getPost('id_unit_edit'),
             ]);
 
         return redirect('dashboard')->with('success', 'Data Updated Successfully');
     }
-    public function listdata()
-    {
- 
-        $request = Services::request();
-        $list_data = new DatatableKaryawan($request);
-        $where = ['id !=' => 0];
-                //Column Order Harus Sesuai Urutan Kolom Pada Header Tabel di bagian View
-                //Awali nama kolom tabel dengan nama tabel->tanda titik->nama kolom seperti pengguna.nama
-        $column_order = array('id', 'name', 'email','phone','agama','status','nama_deputi');
-        $column_search = array('name', 'email','phone','agama','status','nama_deputi');
-        $order = array('id' => 'asc');
-        $list = $list_data->get_datatables('karyawan', $column_order, $column_search, $order, $where);
-        $data = array();
-        $no = $request->getPost("start");
-        foreach ($list as $lists) {
-            $no++;
-            $row    = array();
-            $row[] = $no;
-            $row[] = $lists->name;
-            $row[] = $lists->email;
-            $row[] = $lists->phone;
-            $row[] = $lists->agama;
-            $row[] = $lists->status;
-            $row[] = $lists->nama_deputi;
-            if(!empty(user())){ 
-                $row[] = '<button type="button" class="btn btn-primary btn-edit" data-id="'. $lists->id .'" onclick="showModal(this)">Edit</button>
-                      <a href="'.base_url('dashboard/delete/'.$lists->id) .'" class="btn btn-danger" onclick="return confirm("Are you sure ?")">Delete</a>';
-            }else{
-                $row[] = '<button type="button" class="btn btn-warning btn-lihat" data-view="1" data-id="'. $lists->id .'" onclick="showModal(this)">Lihat</button>';
-            }
-            $data[] = $row;
-        }
-        $output = array(
-            "draw" => $request->getPost("draw"),
-            "recordsTotal" => $list_data->count_all('karyawan', $where),
-            "recordsFiltered" => $list_data->count_filtered('karyawan', $column_order, $column_search, $order, $where),
-            "data" => $data,
-        );
- 
-        return json_encode($output);
-    }
+
     public function ajaxList()
     {
         $request = Services::request();
         $datatable = new UserDatatable($request);
+
         if ($request->getMethod(true) === 'POST') {
             $lists = $datatable->getDatatables();
-            echo $lists->getCompiledSelect();exit();
             $data = [];
             $no = $request->getPost('start');
-
+            // print("<pre>".print_r($lists,true)."</pre>");
             foreach ($lists as $list) {
                 $no++;
                 $row = [];
@@ -124,7 +83,7 @@ class Home extends BaseController
                 $row[] = $list->phone;
                 $row[] = $list->agama;
                 $row[] = $list->status;
-                $row[] = $list->nama_deputi;
+                $row[] = $list->nama_unit;
                 if(!empty(user())){ 
                 	$row[] = '<button type="button" class="btn btn-primary btn-edit" data-id="'. $list->id .'" onclick="showModal(this)">Edit</button>
                           <a href="'.base_url('dashboard/delete/'.$list->id) .'" class="btn btn-danger" onclick="return confirm("Are you sure ?")">Delete</a>';

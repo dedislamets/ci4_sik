@@ -5,12 +5,12 @@ namespace App\Models;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class UserDatatable extends Model
+class DeputiDatatable extends Model
 {
-    protected $table = 'karyawan';
-    protected $column_order = ['karyawan.id','name', 'email','phone','agama','status','nama_unit'];
-    protected $column_search = ['name', 'email','phone','agama','status','nama_unit'];
-    protected $order = ['karyawan.id' => 'DESC'];
+    protected $table = 'extention';
+    protected $column_order = ['nama_direktorat','extention.id', 'nama_unit', 'keterangan','extention'];
+    protected $column_search = ['nama_direktorat','nama_unit', 'keterangan','extention'];
+    protected $order = ['extention.id' => 'DESC'];
     protected $request;
     protected $db;
     protected $dt;
@@ -21,29 +21,10 @@ class UserDatatable extends Model
         $this->db = db_connect();
         $this->request = $request;
         $this->dt = $this->db->table($this->table)
-                ->select('karyawan.id,name,email,phone,agama,status,nama_unit')
-                ->join("unit","unit.id=karyawan.id_unit","LEFT");
+                ->select('extention.*,nama_unit,nama_direktorat')
+                ->join("unit","unit.id=extention.id_unit")
+                ->join("direktorat","unit.id_direktorat=direktorat.id");
 
-
-        $arr_where = array();
-
-        if(!empty($request->getGet())){
-        	$search = "filter_";
-			$i = 0;
-            // echo $this->dt->getLastQuery(); exit();
-			foreach($request->getGet() as $key=> $value){
-			    if(strstr($key,$search)){
-			    	$counter = explode("_", $key);
-			    	$arr_where[ $request->getGet($key) ] = $request->getGet("input_". $counter[1]);
-        			// print("<pre>".print_r($arr_where,true)."</pre>");exit();
-        			
-        			if($i==0)	$this->dt->like( $request->getGet($key), $request->getGet("input_". $counter[1]) );
-        			if($i>0)	$this->dt->like( $request->getGet($key), $request->getGet("input_". $counter[1]) );
-
-        			$i++;
-			    }
-			}
-        }
 
     }
 
@@ -75,20 +56,17 @@ class UserDatatable extends Model
     public function getDatatables()
     {
         $this->getDatatablesQuery();
-        // $this->dt->join("unit","unit.id=karyawan.id_unit");
-
         if ($this->request->getPost('length') != -1)
             $this->dt->limit($this->request->getPost('length'), $this->request->getPost('start'));
         $query = $this->dt->get();
-        // echo $this->dt->getCompiledSelect();exit();
-
         return $query->getResult();
     }
 
     public function countFiltered()
     {
         $this->getDatatablesQuery();
-        $this->dt->join("unit","unit.id=karyawan.id_unit");
+        $this->dt->join("unit","unit.id=extention.id_unit")
+                ->join("direktorat","unit.id_direktorat=direktorat.id");
         // echo $this->dt->getCompiledSelect(); exit();
         return $this->dt->countAllResults();
     }
@@ -96,7 +74,8 @@ class UserDatatable extends Model
     public function countAll()
     {
         $tbl_storage = $this->db->table($this->table)
-                ->join("unit","unit.id=karyawan.id_unit","LEFT");
+                ->join("unit","unit.id=extention.id_unit")
+                ->join("direktorat","unit.id_direktorat=direktorat.id");
         // $tbl_storage->join("deputi","deputi.id_deputi=karyawan.deputi");
         return $tbl_storage->countAllResults();
     }

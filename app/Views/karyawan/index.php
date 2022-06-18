@@ -43,40 +43,14 @@
                             <th>Phone</th>
                             <th>Agama</th>
                             <th>Status</th>
-                            <th>Deputi</th>
+                            <th>Unit</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         
                     </tbody>
-                    <!-- <tbody>
-                        <?php foreach ($karyawan as $key => $karyawan) : ?>
-                        <tr>
-                            <td><?= ++$key ?></td>
-                            <td><?= $karyawan['name'] ?></td>
-                            <td><?= $karyawan['email'] ?></td>
-                            <td><?= $karyawan['phone'] ?></td>
-                            <td><?= $karyawan['agama'] ?></td>
-                            <td><?= $karyawan['status'] ?></td>
-                            <td><?= $karyawan['nama_deputi'] ?></td>
-                            <td>
-                                <?php
-                                if(!empty(user())){ ?>
-                                    <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#editModal-<?= $karyawan['id'] ?>">
-                                    Edit
-                                    </button>
-                                    <a href="<?= base_url('karyawan/delete/'.$karyawan['id']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</a>
-                                <?php }else { ?>
-                                    <button type="button" class="btn btn-primary btn-lihat" data-toggle="modal" data-target="#editModal-<?= $karyawan['id'] ?>">
-                                    Lihat
-                                    </button>
-                                <?php } ?>
-                            </td>
-                        </tr>
-                        
-                        <?php endforeach; ?>
-                    </tbody> -->
+                    
                 </table>
             </div>
         </div>
@@ -123,15 +97,15 @@
                         <input type="text" name="agama" class="form-control" id="address" placeholder="Agama" >
                     </div>
                     <div class="form-group">
-                        <label for="status">Deputi</label>
-                        <select name="deputi" id="deputi" class="form-control" >
+                        <label for="status">Unit</label>
+                        <select name="id_unit" id="id_unit" class="form-control" >
                             <?php 
-                              foreach($deputi as $row)
+                              foreach($unit as $row)
                               { 
-                                if( empty($data) ? "" : $data['id_deputi'] === $row['id_deputi']){
-                                  echo '<option value="'.$row['id_deputi'].'" selected >'.$row['nama_deputi'].'</option>';
+                                if( empty($data) ? "" : $data['id'] === $row['id']){
+                                  echo '<option value="'.$row['id'].'" selected >'.$row['nama_unit'].'</option>';
                                 }else{
-                                  echo '<option value="'.$row['id_deputi'].'">'.$row['nama_deputi'].'</option>';
+                                  echo '<option value="'.$row['id'].'">'.$row['nama_unit'].'</option>';
                                 }
                               }
                               ?>
@@ -166,7 +140,7 @@
                                 <option value="phone">Phone</option>
                                 <option value="agama">Agama</option>
                                 <option value="status">Status</option>
-                                <option value="nama_deputi">Deputi</option>
+                                <option value="nama_unit">Unit</option>
                             </select>
                         </div>
                         <div class="col-sm-6">
@@ -228,12 +202,12 @@
                         <input type="text" name="agama_edit" class="form-control edit" id="agama_edit" placeholder="Agama" value="">
                     </div>
                     <div class="form-group">
-                        <label for="status">Deputi</label>
-                        <select name="deputi_edit" id="deputi_edit" class="form-control edit" >
+                        <label for="status">Unit</label>
+                        <select name="id_unit_edit" id="id_unit_edit" class="form-control edit" >
                             <?php 
-                              foreach($deputi as $row)
+                              foreach($unit as $row)
                               { 
-                                echo '<option value="'.$row['id_deputi'].'">'.$row['nama_deputi'].'</option>';
+                                echo '<option value="'.$row['id'].'">'.$row['nama_unit'].'</option>';
                         
                               }
                               ?>
@@ -306,7 +280,7 @@
             $("#name_edit").val(json['name']);
             $("#email_edit").val(json['email']);
             $("#address_edit").val(json['address']);
-            $("#deputi_edit").val(json['deputi']);
+            $("#id_unit_edit").val(json['id_unit']);
             $("#status_edit").val(json['status']);
             $("#phone_edit").val(json['phone']);
             $("#agama_edit").val(json['agama']);

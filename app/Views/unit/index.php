@@ -24,7 +24,7 @@
 <?= $this->section('content') ?>
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Direktorat</h1>
+    <h1 class="h3 mb-2 text-gray-800">Unit</h1>
     <?php
         if(session()->getFlashData('success')){
         ?>
@@ -52,6 +52,7 @@
                     <thead>
                         <tr>
                             <th width="85">#</th>
+                            <th>Unit</th>
                             <th>Direktorat</th>
                             <th width="180">Action</th>
                         </tr>
@@ -61,13 +62,14 @@
                         <?php foreach ($deputis as $key => $deputi) : ?>
                         <tr>
                             <td><?= ++$key ?></td>
+                            <td><?= $deputi['nama_unit'] ?></td>
                             <td><?= $deputi['nama_direktorat'] ?></td>
-                            <td>
+                            <td >
                                 <?php if(!empty(user())){ ?>
-                                <button type="button" class="btn btn-primary btn-edit" data-id="<?= $deputi['id'] ?>" onclick="showModal(this)">Edit</button>
-                                
-                                <a href="<?= base_url('deputi/delete/'.$deputi['id']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</a>
-                            <?php } ?>
+                                    <button type="button" class="btn btn-primary btn-edit" data-id="<?= $deputi['id'] ?>" onclick="showModal(this)">Edit</button>
+                                    
+                                    <a href="<?= base_url('unit/delete/'.$deputi['id']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</a>
+                                <?php } ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -83,34 +85,32 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Direktorat</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Unit</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('deputi/create') ?>" method="post">
+            <form action="<?= base_url('unit/create') ?>" method="post">
             <?= csrf_field(); ?>
                 <div class="modal-body">
-                    
-                    <!-- <div class="form-group">
-                        <label for="status">Parent</label>
-                        <select name="parent_id" id="parent_id" class="form-control" >
-                            <option value="0">-</option> -->
-                            <?php 
-                              // foreach($deputis as $row)
-                              // { 
-                              //   if( empty($data) ? "" : $data['id_deputi'] === $row['id_deputi']){
-                              //     echo '<option value="'.$row['id_deputi'].'" selected >'.$row['nama_deputi'].'</option>';
-                              //   }else{
-                              //     echo '<option value="'.$row['id_deputi'].'">'.$row['nama_deputi'].'</option>';
-                              //   }
-                              // }
-                              ?>
-                       <!--  </select>
-                    </div> -->
                     <div class="form-group">
-                        <label for="name">Direktorat</label>
-                        <input type="text" name="nama_direktorat" class="form-control" id="nama_direktorat" placeholder="" required>
+                        <label for="status">Parent</label>
+                        <select name="id_direktorat" id="id_direktorat" class="form-control" >
+                            <?php 
+                              foreach($direktorat as $row)
+                              { 
+                                if( empty($data) ? "" : $data['id'] === $row['id']){
+                                  echo '<option value="'.$row['id'].'" selected >'.$row['nama_direktorat'].'</option>';
+                                }else{
+                                  echo '<option value="'.$row['id'].'">'.$row['nama_direktorat'].'</option>';
+                                }
+                              }
+                              ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Unit</label>
+                        <input type="text" name="nama_unit" class="form-control" id="nama_unit" placeholder="" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -126,7 +126,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Direktorat</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Unit</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -134,10 +134,24 @@
             <form id="form1" action="" method="post">
                 <?= csrf_field(); ?>
                 <div class="modal-body">
-                    
                     <div class="form-group">
-                        <label for="name">Direktorat</label>
-                        <input type="text" name="nama_direktorat" class="form-control edit" id="nama_direktorat_edit" value="" placeholder="" required>
+                        <label for="status">Parent</label>
+                        <select name="id_direktorat" id="id_direktorat_edit" class="form-control" >
+                            <?php 
+                              foreach($direktorat as $row)
+                              { 
+                                if( empty($data) ? "" : $data['id'] === $row['id']){
+                                  echo '<option value="'.$row['id'].'" selected >'.$row['nama_direktorat'].'</option>';
+                                }else{
+                                  echo '<option value="'.$row['id'].'">'.$row['nama_direktorat'].'</option>';
+                                }
+                              }
+                              ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Unit</label>
+                        <input type="text" name="nama_unit" class="form-control edit" id="nama_unit_edit" value="" placeholder="" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -162,12 +176,12 @@
     });
 
     function showModal(val){
-        $.get('deputi/get', { id: $(val).data('id') }, function(data){ 
+        $.get('unit/get', { id: $(val).data('id') }, function(data){ 
             var json = JSON.parse(data);
-            $("#nama_direktorat_edit").val(json['nama_direktorat']);
+            $("#nama_unit_edit").val(json['nama_unit']);
             
-            $("#form1").attr('action','deputi/edit/' + $(val).data('id'));
-            $("#btnDelete").attr('href','deputi/delete/' + $(val).data('id'));
+            $("#form1").attr('action','unit/edit/' + $(val).data('id'));
+            $("#btnDelete").attr('href','unit/delete/' + $(val).data('id'));
             $('#editModal').modal({backdrop: 'static', keyboard: false}) ;
             <?php if(empty(user())){ ?>
                 $(".edit").attr("disabled","disabled");

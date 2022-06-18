@@ -2,11 +2,13 @@
 
 namespace App\Controllers;
 use App\Models\Direktorat;
+use App\Models\Extention;
 use Config\Services;
 use App\Models\DeputiDatatable;
 
-class DeputiController extends BaseController
+class ExtentionController extends BaseController
 {
+    protected $extention;
     protected $direktorat;
  
     function __construct()
@@ -27,43 +29,48 @@ class DeputiController extends BaseController
     public function index()
     {        
         $this->direktorat = new Direktorat();
-	    $data['deputis'] = $this->direktorat->findAll();
+	    $data['direktorat'] = $this->direktorat->findAll();
 
-        return view('deputi/index', $data);
+
+        return view('extention/index', $data);
     }
 
     public function create()
     {
-        $this->deputi = new Direktorat();
-        $this->deputi->insert([
-            'nama_direktorat' => $this->request->getPost('nama_direktorat')
+        $this->extention = new Extention();
+        $this->extention->insert([
+            'id_unit' => $this->request->getPost('unit'),
+            'extention' => $this->request->getPost('extention'),
+            'keterangan' => $this->request->getPost('keterangan'),
         ]);
 
-		return redirect('deputi')->with('success', 'Data Added Successfully');	
+		return redirect('extention')->with('success', 'Data Added Successfully');	
     }
     public function edit($id)
     {
-        $this->deputi = new Direktorat();
-        $this->deputi->update($id, [
-                'nama_direktorat' => $this->request->getPost('nama_direktorat')
+        $this->extention = new Extention();
+        $this->extention->update($id, [
+                'id_unit' => $this->request->getPost('unit'),
+                'extention' => $this->request->getPost('extention'),
+                'keterangan' => $this->request->getPost('keterangan'),
             ]);
 
-            return redirect('deputi')->with('success', 'Data Updated Successfully');
+            return redirect('extention')->with('success', 'Data Updated Successfully');
     }
 
     public function delete($id)
 	{
-        $this->deputi = new Direktorat();
-    	$this->deputi->delete($id);
+        $this->extention = new Extention();
+    	$this->extention->delete($id);
 
-    	return redirect('deputi')->with('success', 'Data Deleted Successfully');
+    	return redirect('extention')->with('success', 'Data Deleted Successfully');
 	}
 
-    public function getDeputi()
+    public function get()
     {
-        $this->deputi = new Direktorat();
+        $this->extention = new Extention();
         $id = $this->request->getGet('id');
-        $response = $this->deputi->find($id);
+        $response = $this->extention->modal($id);
 
         echo json_encode($response);
     }
@@ -82,14 +89,15 @@ class DeputiController extends BaseController
                 $no++;
                 $row = [];
                 $row[] = $no;
-                $row[] = $list->nama_deputi;
+                $row[] = $list->nama_direktorat;
+                $row[] = $list->nama_unit;
                 $row[] = $list->keterangan;
                 $row[] = $list->extention;
                 if(!empty(user())){ 
-                    $row[] = '<button type="button" class="btn btn-primary btn-edit" data-id="'. $list->id_deputi .'" onclick="showModal(this)">Edit</button>
-                          <a href="'.base_url('deputi/delete/'.$list->id_deputi) .'" class="btn btn-danger" onclick="return confirm("Are you sure ?")">Delete</a>';
+                    $row[] = '<button type="button" class="btn btn-primary btn-edit" data-id="'. $list->id .'" onclick="showModal(this)">Edit</button>
+                          <a href="'.base_url('extention/delete/'.$list->id) .'" class="btn btn-danger" onclick="return confirm("Are you sure ?")">Delete</a>';
                 }else{
-                    $row[] = '<button type="button" class="btn btn-warning btn-lihat" data-view="1" data-id="'. $list->id_deputi .'" onclick="showModal(this)">Lihat</button>';
+                    $row[] = '<button type="button" class="btn btn-warning btn-lihat" data-view="1" data-id="'. $list->id .'" onclick="showModal(this)">Lihat</button>';
                 }
                 
                 $data[] = $row;
