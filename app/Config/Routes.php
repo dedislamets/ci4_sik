@@ -34,13 +34,22 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::dashboard');
 $routes->get('contact', 'ContactController::index');
 
-$routes->add('dashboard/ajaxList', 'Home::listdata');
+$routes->add('dashboard/ajaxList', 'Home::ajaxList');
 $routes->add('dashboard/get', 'Home::getKaryawan');
 
 $routes->get('deputi', 'DeputiController::index');
 $routes->get('dashboard', 'Home::dashboard');
 
 $routes->add('deputi/get', 'DeputiController::getDeputi');
+$routes->add('deputi/ajaxList', 'DeputiController::ajaxList');
+
+$routes->get('unit', 'UnitController::index');
+$routes->add('unit/get', 'UnitController::getUnit');
+$routes->add('unit/getbydir', 'UnitController::getUnitByDirektorat');
+
+$routes->get('extention', 'ExtentionController::index');
+$routes->add('extention/ajaxList', 'ExtentionController::ajaxList');
+$routes->add('extention/get', 'ExtentionController::get');
 
 $routes->group('', ['filter' => 'login'], function($routes){
 
@@ -56,6 +65,14 @@ $routes->group('', ['filter' => 'login'], function($routes){
     $routes->add('deputi/create', 'DeputiController::create');
     $routes->add('deputi/edit/(:segment)', 'DeputiController::edit/$1');
     $routes->get('deputi/delete/(:segment)', 'DeputiController::delete/$1');
+
+    $routes->add('unit/create', 'UnitController::create');
+    $routes->add('unit/edit/(:segment)', 'UnitController::edit/$1');
+    $routes->get('unit/delete/(:segment)', 'UnitController::delete/$1');
+
+    $routes->add('extention/create', 'ExtentionController::create');
+    $routes->add('extention/edit/(:segment)', 'ExtentionController::edit/$1');
+    $routes->get('extention/delete/(:segment)', 'ExtentionController::delete/$1');
 });
 /*
  * --------------------------------------------------------------------
