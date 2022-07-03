@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="text" name="phone" class="form-control" id="phone" placeholder="HP" required>
+                        <input type="phone" name="phone" class="form-control number" id="phone" placeholder="HP" required>
                     </div>
                     <div class="form-group">
                         <label for="status">Status</label>
@@ -184,7 +184,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="text" name="phone_edit" class="form-control edit" id="phone_edit" value=""  placeholder="Phone Number" required>
+                        <input type="phone" name="phone_edit" class="form-control edit number" id="phone_edit" value=""  placeholder="Phone Number" required>
                     </div>
                     <div class="form-group">
                         <label for="status">Status</label>
@@ -248,7 +248,11 @@
             });
 
     });
- 
+    
+    $('.number').on('input', function (event) { 
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
     $(".btn-edit").on('click', function (event) {
         $(".edit").removeAttr("disabled");
         $(".btn-submit").css("display","block");

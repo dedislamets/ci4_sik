@@ -14,7 +14,13 @@
             rel="stylesheet">
         <!-- Custom styles for this template-->
         <link href="<?= base_url('assets/css/sb-admin-2.min.css') ?>" rel="stylesheet">
-
+        <style type="text/css">
+            .bg-gradient-primary {
+                background-color: #ab0e0e;
+                background-image: linear-gradient(180deg,#940f0f 10%,#8f0f0f 100%);
+                background-size: cover;
+            }
+        </style>
         <?= $this->renderSection('styles') ?>
     </head>
     <body id="page-top">

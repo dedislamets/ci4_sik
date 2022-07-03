@@ -11,16 +11,11 @@
 
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        body {
-            padding-top: 5rem;
-        }
-    </style>
 
     <?= $this->renderSection('pageStyles') ?>
 </head>
 
-<body>
+<body style="background-color: #ab0e0e;">
 
 <?= view('Myth\Auth\Views\_navbar') ?>
 

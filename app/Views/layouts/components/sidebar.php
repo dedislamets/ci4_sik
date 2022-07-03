@@ -2,7 +2,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <img src="<?= base_url()?>/assets/img/logo.png" style="width: 80px;">
         </div>
         <div class="sidebar-brand-text mx-3">Informasi Karyawan</div>
     </a>

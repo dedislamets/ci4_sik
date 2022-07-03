@@ -4,7 +4,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6 offset-sm-3">
-
+			<div class="text-center">
+		        <img src="<?= base_url()?>/assets/img/logo.png" style="width: 220px;">
+		    </div>
 			<div class="card">
 				<h2 class="card-header"><?=lang('Auth.loginTitle')?></h2>
 				<div class="card-body">
